@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Montserrat:wght@500;700&family=Space+Mono:wght@400;700&display=swap');
+/***
+    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol
+      *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+body {
+  font-size: 16px;
+  overflow-x: hidden;
+  transition: linear 400ms ease-out;
+}
+
+:root {
+  --font-1: "Inconsolata", monospace;
+  --font-2: "Space Mono", monospace;
+}
+
+.header {
+  max-width: 1440px;
+  padding: 2rem 2rem 8rem 2rem;
+  margin: 0 auto;
+}
+
+.header .header__logo {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 25px;
+  font-family: var(--font-1);
+  letter-spacing: -0.08em;
+  color: #333333;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  column-gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content .content__img {
+  max-width: 800px;
+  animation: animate-2 2s forwards;
+}
+
+.content__text {
+  animation: animate 2s forwards;
+}
+
+.content .content__text .title {
+  font-size: 4rem;
+  font-family: var(--font-2);
+  line-height: 95px;
+  letter-spacing: -0.035em;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 36px;
+}
+
+.content .content__text .content__paragraph {
+  font-family: var(--font-2);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 36px;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
+  margin-bottom: 64px;
+}
+
+.content .content__text .content__btn {
+  font-family: var(--font-2);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 21px;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #333333;
+  padding: 1.5rem 2rem;
+}
+
+.copy {
+  padding-top: 8rem;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 17px;
+  text-align: center;
+  color: #bdbdbd;
+}
+
+.copy a {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes animate-2 {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 1rem 2rem 6rem 1rem;
+  }
+
+  .content {
+    padding: 1rem 1rem 4rem 1rem;
+    flex-direction: column;
+  }
+
+  .content .content__text .title {
+    font-size: 3rem;
+    line-height: 71px;
+  }
+
+  .content .content__text .content__paragraph {
+    line-height: 27px;
+    font-size: 1.2rem;
+  }
+
+  .copy {
+    padding: 4rem 0 1rem 0;
+  }
+}

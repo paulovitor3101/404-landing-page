@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="devchallenges.png" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://devchallenges.io/"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Devchallenges</title>
+
+
+
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html"><span class="header__logo">404 not found</span></a>
+    </header>
+
+    <main class="content">
+      <div class="content__img">
+        <img src="Scarecrow.png" alt="Scarecrow image" />
+      </div>
+      <div class="content__text">
+        <h1 class="title">I have bad news for you</h1>
+        <p class="content__paragraph">
+          The page you are looking for might be removed or is temporarily
+          unavailable
+        </p>
+        <a href="#" class="content__btn">Back to homepage</a>
+      </div>
+    </main>
+    <p class="copy">
+      created by <a href="#">Paulo Vitor</a> - devChallenges.io copyright: <span id="current-year"></span> ©
+    </p>
+
+
+    <script>
+      const year = document.getElementById('current-year')
+      year.innerHTML = new Date().getFullYear()
+
+    </script>
+  </body>
+</html>
